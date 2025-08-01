@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class UserDAO {
     public boolean addUser(User user){
-        String sql = "INSERT into Users VALUES (id_user, nome, senha) values (?, ?, ?)";
+        String sql = "INSERT into Users (id_user, nome, senha) values (?, ?, ?)";
 
         try(Connection conn = DBConnection.getConnection()){
             PreparedStatement stmt = conn.prepareStatement(sql);

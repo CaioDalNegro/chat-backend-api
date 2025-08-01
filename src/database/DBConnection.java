@@ -8,8 +8,8 @@ public class DBConnection {
     public static Connection getConnection(){
         Connection conn = null;
         String url = "jdbc:postgresql://localhost:5432/apichat";
-        String usuario = "123";
-        String senha = "123";
+        String usuario = "postgres";
+        String senha = "postgres";
 
         try {
             conn = DriverManager.getConnection(url, usuario, senha);
