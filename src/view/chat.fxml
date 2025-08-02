@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ChatController" prefWidth="600" prefHeight="400">
-    <top>
-        <Label text="Chat" style="-fx-font-size: 18;" BorderPane.alignment="CENTER" />
-    </top>
-    <center>
-        <ListView fx:id="messageList" />
-    </center>
-    <bottom>
-        <HBox spacing="10" padding="10">
-            <TextField fx:id="messageField" HBox.hgrow="ALWAYS" promptText="Digite sua mensagem..." />
-            <Button text="Enviar" onAction="#sendMessage" />
-        </HBox>
-    </bottom>
-</BorderPane>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.ChatController"
+            prefHeight="400.0" prefWidth="600.0">
+</AnchorPane>

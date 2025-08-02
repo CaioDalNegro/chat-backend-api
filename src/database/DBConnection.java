@@ -9,7 +9,7 @@ public class DBConnection {
         Connection conn = null;
         String url = "jdbc:postgresql://localhost:5432/apichat";
         String usuario = "postgres";
-        String senha = "postgres";
+        String senha = "020576";
 
         try {
             conn = DriverManager.getConnection(url, usuario, senha);

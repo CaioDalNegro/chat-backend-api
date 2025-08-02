@@ -1,9 +1,18 @@
 package controller;
 
+import database.DAO.UserDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+import model.User;
+
+import java.io.IOException;
+import java.util.UUID;
 
 public class RegisterController {
 
@@ -15,6 +24,8 @@ public class RegisterController {
 
     @FXML
     private PasswordField confirmPasswordField;
+
+    UserDAO udao = new UserDAO();
 
     public void handleRegister() {
         String username = usernameField.getText();
@@ -28,6 +39,22 @@ public class RegisterController {
         } else {
             // Simula cadastro (depois ligar com UserDAO)
             showAlert("Usuário registrado com sucesso!");
+            if(udao.addUser(new User(UUID.randomUUID(), username, password))){
+                showAlert("usuario add no banco");
+            }
+            else {
+                showAlert("usuario nao foi add no banco");
+            }
+        }
+    }
+
+    public void goToLogin() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+            Stage stage = (Stage) usernameField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
