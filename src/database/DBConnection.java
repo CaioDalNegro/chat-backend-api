@@ -7,9 +7,10 @@ import java.sql.SQLException;
 public class DBConnection {
     public static Connection getConnection(){
         Connection conn = null;
-        String url = "jdbc:postgresql://localhost:5432/apichat";
+        //String url = "jdbc:postgresql://localhost:5432/apichat";
+        String url = "jdbc:postgresql://us.openport.io:37606/apichat";
         String usuario = "postgres";
-        String senha = "020576";
+        String senha = "postgres";
 
         try {
             conn = DriverManager.getConnection(url, usuario, senha);

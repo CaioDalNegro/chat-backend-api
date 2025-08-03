@@ -5,17 +5,19 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="300" prefWidth="480.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="controller.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
    <children>
-      <Label layoutX="191.0" layoutY="14.0" style="-fx-font-size: 20;" text="Registrar" />
-      <Label layoutX="68.0" layoutY="70.0" text="Username:" />
-      <TextField fx:id="usernameField" layoutX="130.0" layoutY="66.0" prefWidth="200" />
-      <Label layoutX="69.0" layoutY="110.0" text="Password:" />
-      <PasswordField fx:id="passwordField" layoutX="130.0" layoutY="106.0" prefWidth="200" />
-      <Label layoutX="31.0" layoutY="150.0" text="Confirmar Senha:" />
-      <PasswordField fx:id="confirmPasswordField" layoutX="131.0" layoutY="146.0" prefHeight="25.0" prefWidth="200.0" />
-      <Button layoutX="198.0" layoutY="195.0" onAction="#handleRegister" text="Registrar" />
-      <Button layoutX="414.0" layoutY="17.0" mnemonicParsing="false" onAction="#goToLogin" text="Voltar" />
+      <VBox alignment="TOP_RIGHT" layoutX="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="sidebar" stylesheets="@../resources/styles/stylesheet.css">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goToLogin" text="Voltar" />
+         </children>
+      </VBox>
+      <Label layoutX="152.0" layoutY="207.0" style="-fx-font-size: 20;" text="Registrar" />
+      <TextField fx:id="usernameField" layoutX="91.0" layoutY="268.0" prefWidth="200" promptText="Username" />
+      <PasswordField fx:id="passwordField" layoutX="91.0" layoutY="300.0" prefWidth="200" promptText="Password" />
+      <PasswordField fx:id="confirmPasswordField" layoutX="91.0" layoutY="331.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" />
+      <Button layoutX="41.0" layoutY="400.0" onAction="#handleRegister" prefHeight="50.0" prefWidth="300.0" styleClass="loginBtn" stylesheets="@../resources/styles/stylesheet.css" text="Registrar" />
    </children>
 </AnchorPane>

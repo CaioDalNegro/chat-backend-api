@@ -15,7 +15,7 @@
             <padding>
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
-            <Label text="Chat com Fulano" textFill="WHITE">
+            <Label text="Olá" textFill="WHITE">
                 <font>
                     <Font size="18.0" />
                 </font>
@@ -30,7 +30,7 @@
                 <padding>
                     <Insets top="10" right="10" bottom="10" left="10"/>
                 </padding>
-                <!-- Mensagens serão adicionadas dinamicamente aqui -->
+                <!-- Mensagens serão adicionadas aqui -->
             </VBox>
         </ScrollPane>
     </center>
