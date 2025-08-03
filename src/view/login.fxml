@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" smooth="false">
                <image>
-                  <Image url="@../resources/images/chat_icon.png" />
+                  <Image url="@../resources/images/conversando.png" />
                </image>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -46,7 +46,7 @@
             </Label>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" smooth="false">
                <image>
-                  <Image url="@../resources/images/chat_icon.png" />
+                  <Image url="@../resources/images/conversando.png" />
                </image>
             </ImageView>
             <Label layoutX="14.0" layoutY="93.0" text="Sign in to continue" textFill="#a3a3a3">
@@ -62,14 +62,14 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <VBox alignment="CENTER" layoutX="342.0" layoutY="-7.0" prefHeight="600.0" prefWidth="58.0">
+            <VBox alignment="CENTER" layoutX="342.0" prefHeight="593.0" prefWidth="58.0">
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#closeApp">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/images/sair_icoblack.png" />
+                        <Image url="@../resources/images/fechar_preto.png" />
                      </image>
                   </ImageView>
+                  <Pane prefHeight="528.0" prefWidth="58.0" />
                </children>
             </VBox>
          </children>

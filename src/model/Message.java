@@ -21,6 +21,10 @@ public class Message {
         setId(id);
     }
 
+    public Message() {
+
+    }
+
     public String getDescricao() {
         return descricao;
     }

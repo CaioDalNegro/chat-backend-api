@@ -13,6 +13,10 @@ public class User {
         setSenha(senha);
     }
 
+    public User() {
+
+    }
+
     public UUID getId() {
         return id;
     }

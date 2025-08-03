@@ -3,13 +3,87 @@ package database.DAO;
 import database.DBConnection;
 import model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserDAO {
+
+    public User PegarPorNome(String nome){
+        String sql = "select * from Users where nome = ?";
+
+        try (Connection conn = DBConnection.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, nome);
+
+            ResultSet rs = stmt.executeQuery();
+
+            User u = new User();
+            u.setId(UUID.fromString(rs.getString("id_user")));
+            u.setNome(rs.getString("nome"));
+            u.setSenha(rs.getString("senha"));
+
+            return u;
+
+        } catch (SQLException e){
+            System.out.println("ERRO ao tentar pegar user por nome " + e.getMessage());
+            return null;
+        }
+    }
+
+    public User PegarPorID(UUID id){
+        String sql = "select * from Users where nome = ?";
+
+        try (Connection conn = DBConnection.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setObject(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            User u = new User();
+            u.setId(UUID.fromString(rs.getString("id_user")));
+            u.setNome(rs.getString("nome"));
+            u.setSenha(rs.getString("senha"));
+
+            return u;
+
+        } catch (SQLException e){
+            System.out.println("ERRO ao tentar pegar user por nome " + e.getMessage());
+            return null;
+        }
+    }
+
+    public boolean remUser(UUID id){
+        String sql = "DELETE FROM users where id_user = ?";
+
+        try (Connection conn = DBConnection.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setObject(1, id);
+
+            stmt.executeUpdate();
+            return true;
+
+        } catch (SQLException e){
+            System.out.println("ERRO ao tentar apagar user " + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean atualizarUser(UUID id,User u){
+        String sql = "UPDATE users set nome = ?, senha = ? where id_user = ?";
+        try(Connection conn = DBConnection.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setObject(1, u.getNome());
+            stmt.setObject(2, u.getSenha());
+            stmt.setObject(3, id);
+
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("ERRO ao tentar atualizar " + e.getMessage());
+            return false;
+        }
+    }
 
     public boolean addUser(User user) {
         String sql = "INSERT INTO users (id_user, nome, senha) VALUES (?, ?, ?)";
@@ -25,7 +99,7 @@ public class UserDAO {
             return true;
 
         } catch (SQLException e) {
-            System.out.println("Erro ao adicionar usuário: " + e.getMessage());
+            System.out.println("ERRO ao adicionar usuário: " + e.getMessage());
             return false;
         }
     }
@@ -53,5 +127,31 @@ public class UserDAO {
         }
 
         return null;
+    }
+
+    public ArrayList<User> todosUser(){
+        String sql = "select * from Users";
+        ArrayList<User> lista = new ArrayList<>();
+
+
+        try (Connection conn = DBConnection.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()){
+                User u = new User();
+                u.setId(UUID.fromString(rs.getString("id_user")));
+                u.setNome(rs.getString("nome"));
+                u.setSenha(rs.getString("senha"));
+                lista.add(u);
+            }
+
+            return lista;
+
+        } catch (SQLException e){
+            System.out.println("ERRO ao tentar pegar todos os user " + e.getMessage());
+            return null;
+        }
     }
 }
