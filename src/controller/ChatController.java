@@ -13,14 +13,15 @@ public class ChatController {
     private TextField messageField;
 
     public void sendMessage() {
-        String message = messageField.getText();
+        String message = messageField.getText().trim();
+
         if (!message.isEmpty()) {
-            messageList.getItems().add("Você: " + message);  // Exibe na lista
+            messageList.getItems().add("Você: " + message);  // Adiciona mensagem à lista
             messageField.clear();
 
-            // Aqui você pode adicionar a lógica para enviar via socket usando ChatClient
-            // Exemplo:
-            // ChatClient.sendMessage("IP_DO_DESTINO", PORTA, message);
         }
     }
+
+
+
 }

@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.ChatController"
-            prefHeight="400.0" prefWidth="600.0">
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ChatController" prefWidth="800" prefHeight="600">
+
+    <!-- Top Bar com Título ou Nome do Contato -->
+    <top>
+        <HBox style="-fx-background-color: #2C3E50;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Chat com Fulano" textFill="WHITE">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+    <!-- Área de Mensagens (ScrollPane com VBox) -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" style="-fx-background: #ECF0F1;" hbarPolicy="NEVER">
+            <VBox fx:id="messageContainer" spacing="10.0">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <!-- Mensagens serão adicionadas dinamicamente aqui -->
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Campo de entrada de mensagem -->
+    <bottom>
+        <HBox spacing="10" style="-fx-background-color: #ECF0F1;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="messageField" promptText="Digite sua mensagem..." HBox.hgrow="ALWAYS"/>
+            <Button fx:id="sendButton" text="Enviar" onAction="#sendMessage"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
