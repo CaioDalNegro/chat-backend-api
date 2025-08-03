@@ -19,7 +19,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
             Scene scene = new Scene(root);
 
-            // 🖱️ Lógica para mover a janela
+            // Lógica para mover a janela
             root.setOnMousePressed(event -> {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
@@ -30,7 +30,7 @@ public class Main extends Application {
                 primaryStage.setY(event.getScreenY() - yOffset);
             });
 
-            // 🔒 Impede redimensionamento e remove a barra
+            // Impede redimensionamento e remove a barra
             primaryStage.setResizable(false);
             primaryStage.initStyle(StageStyle.UNDECORATED);
 

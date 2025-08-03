@@ -1,9 +1,14 @@
+/*configuraçao da tela de login e registro*/
 .parent{
     -fx-background-color: white;
 }
 
 .sidebar{
-    -fx-background-color: #6747CD;
+    -fx-background-color: #181818;
+}
+
+.sidebar-background{
+    -fx-background-color: #212121;
 }
 
 .forgetBtn{
@@ -36,4 +41,12 @@
 
 .closeBtn:hover {
     -fx-fill: #ff6666;
+}
+
+.transparent-background{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.radius{
+    -fx-background-radius: 100px;
 }

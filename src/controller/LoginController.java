@@ -3,6 +3,7 @@ package controller;
 
 import database.DAO.UserDAO;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
@@ -11,6 +12,9 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import model.User;
+import javafx.event.ActionEvent;
+import javafx.application.Platform;
+
 
 import java.io.IOException;
 
@@ -23,6 +27,12 @@ public class LoginController {
     private PasswordField passwordField;
 
     private UserDAO userDAO = new UserDAO();
+
+
+    @FXML
+    private void closeApp() {
+        Platform.exit(); // Fecha a aplicação
+    }
 
     public void handleLogin() {
         String username = usernameField.getText();

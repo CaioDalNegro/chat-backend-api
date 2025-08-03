@@ -1,49 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ChatController" prefWidth="800" prefHeight="600">
 
-    <!-- Top Bar com Título ou Nome do Contato -->
-    <top>
-        <HBox style="-fx-background-color: #2C3E50;">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
-            <Label text="Olá" textFill="WHITE">
-                <font>
-                    <Font size="18.0" />
-                </font>
-            </Label>
-        </HBox>
-    </top>
-
-    <!-- Área de Mensagens (ScrollPane com VBox) -->
-    <center>
-        <ScrollPane fx:id="scrollPane" fitToWidth="true" style="-fx-background: #ECF0F1;" hbarPolicy="NEVER">
-            <VBox fx:id="messageContainer" spacing="10.0">
-                <padding>
-                    <Insets top="10" right="10" bottom="10" left="10"/>
-                </padding>
-                <!-- Mensagens serão adicionadas aqui -->
+<AnchorPane prefHeight="702.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChatController">
+   <children>
+      <HBox prefHeight="702.0" prefWidth="400.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="sidebar" stylesheets="@../resources/styles/stylesheet.css">
+               <children>
+                  <Pane prefHeight="240.0" prefWidth="100.0" />
+                  <ImageView fitHeight="48.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/conversando.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="48.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/contato.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="48.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/interface-do-usuario.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <ImageView fitHeight="48.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#closeApp">
+                     <image>
+                        <Image url="@../resources/images/sair.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
             </VBox>
-        </ScrollPane>
-    </center>
-
-    <!-- Campo de entrada de mensagem -->
-    <bottom>
-        <HBox spacing="10" style="-fx-background-color: #ECF0F1;">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
-            <TextField fx:id="messageField" promptText="Digite sua mensagem..." HBox.hgrow="ALWAYS"/>
-            <Button fx:id="sendButton" text="Enviar" onAction="#sendMessage"/>
-        </HBox>
-    </bottom>
-
-</BorderPane>
+            <VBox prefHeight="702.0" prefWidth="315.0" styleClass="sidebar-background" stylesheets="@../resources/styles/stylesheet.css">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="200.0" stylesheets="@../resources/styles/stylesheet.css">
+                     <children>
+                        <ImageView fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/lupa-de-pesquisa.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField prefHeight="25.0" prefWidth="186.0" promptText="Search" styleClass="transparent-background" stylesheets="@../resources/styles/stylesheet.css">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                     <styleClass>
+                        <String fx:value="sidebar" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                  </HBox>
+                  <Pane prefHeight="2.0" prefWidth="200.0" styleClass="sidebar" stylesheets="@../resources/styles/stylesheet.css" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/perfil.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="234.0">
+                           <children>
+                              <Label prefHeight="21.0" prefWidth="120.0" text="Scache" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="176.0" text="You: Teste..." textFill="#808080">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/perfil.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="234.0">
+                           <children>
+                              <Label text="Beto" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="149.0" text="You: Teste..." textFill="#808080">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox layoutX="399.0" prefHeight="60.0" prefWidth="607.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="607.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="120.0" text="Scache" textFill="#868686">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ScrollPane layoutX="399.0" layoutY="60.0" prefHeight="594.0" prefWidth="607.0" styleClass="transparent-background" stylesheets="@../resources/values/style.css">
+         <content>
+            <Pane prefHeight="591.0" prefWidth="605.0" styleClass="light-gray-background" stylesheets="@../resources/values/style.css">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/perfil.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="68.0" layoutY="21.0" prefHeight="32.0" prefWidth="69.0" styleClass="incoming-bubble" stylesheets="@../resources/values/style.css" text="Teste" textAlignment="JUSTIFY" textFill="#757575">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="546.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/perfil.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="468.0" layoutY="101.0" prefHeight="32.0" prefWidth="67.0" styleClass="outgoing-bubble" stylesheets="@../resources/values/style.css" text="Teste" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER" layoutX="399.0" layoutY="654.0" prefHeight="45.0" prefWidth="607.0">
+         <children>
+            <TextField prefHeight="35.0" prefWidth="484.0" promptText="Type something to send..." styleClass="radius" stylesheets="@../resources/styles/stylesheet.css">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </TextField>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#sendMessage">
+               <image>
+                  <Image url="@../resources/images/mandar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
