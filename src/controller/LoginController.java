@@ -28,6 +28,8 @@ public class LoginController {
 
     private UserDAO userDAO = new UserDAO();
 
+    private static User usuarioLogado = null;
+
 
     @FXML
     private void closeApp() {
@@ -42,6 +44,7 @@ public class LoginController {
 
         if (user != null) {
             showAlert("Login realizado com sucesso!");
+            usuarioLogado = user;
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/view/chat.fxml"));
                 Stage stage = (Stage) usernameField.getScene().getWindow();
@@ -63,6 +66,10 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static User getUsuarioLogado(){
+        return usuarioLogado;
     }
 
     private void showAlert(String message) {

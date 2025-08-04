@@ -18,12 +18,16 @@ public class UserDAO {
 
             ResultSet rs = stmt.executeQuery();
 
-            User u = new User();
-            u.setId(UUID.fromString(rs.getString("id_user")));
-            u.setNome(rs.getString("nome"));
-            u.setSenha(rs.getString("senha"));
+            if (rs.next()) {  // <--- ESSENCIAL
+                User u = new User();
+                u.setId(UUID.fromString(rs.getString("id_user")));
+                u.setNome(rs.getString("nome"));
+                u.setSenha(rs.getString("senha"));
 
-            return u;
+                return u;
+            } else {
+                return null; // Nenhum usuário encontrado
+            }
 
         } catch (SQLException e){
             System.out.println("ERRO ao tentar pegar user por nome " + e.getMessage());
@@ -32,7 +36,7 @@ public class UserDAO {
     }
 
     public User PegarPorID(UUID id){
-        String sql = "select * from Users where nome = ?";
+        String sql = "select * from Users where id_user = ?";
 
         try (Connection conn = DBConnection.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -40,18 +44,23 @@ public class UserDAO {
 
             ResultSet rs = stmt.executeQuery();
 
-            User u = new User();
-            u.setId(UUID.fromString(rs.getString("id_user")));
-            u.setNome(rs.getString("nome"));
-            u.setSenha(rs.getString("senha"));
+            if (rs.next()) {  // <--- ESSENCIAL
+                User u = new User();
+                u.setId(UUID.fromString(rs.getString("id_user")));
+                u.setNome(rs.getString("nome"));
+                u.setSenha(rs.getString("senha"));
 
-            return u;
+                return u;
+            } else {
+                return null; // Nenhum usuário encontrado
+            }
 
         } catch (SQLException e){
-            System.out.println("ERRO ao tentar pegar user por nome " + e.getMessage());
+            System.out.println("ERRO ao tentar pegar user por id " + e.getMessage());
             return null;
         }
     }
+
 
     public boolean remUser(UUID id){
         String sql = "DELETE FROM users where id_user = ?";

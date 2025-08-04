@@ -82,88 +82,18 @@
                      </styleClass>
                   </HBox>
                   <Pane prefHeight="2.0" prefWidth="200.0" styleClass="sidebar" stylesheets="@../resources/styles/stylesheet.css" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/images/perfil.png" />
-                           </image>
-                        </ImageView>
-                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="234.0">
-                           <children>
-                              <Label prefHeight="21.0" prefWidth="120.0" text="Scache" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="21.0" prefWidth="176.0" text="You: Teste..." textFill="#808080">
-                                 <VBox.margin>
-                                    <Insets left="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/images/perfil.png" />
-                           </image>
-                        </ImageView>
-                        <VBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="234.0">
-                           <children>
-                              <Label text="Beto" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="21.0" prefWidth="149.0" text="You: Teste..." textFill="#808080">
-                                 <VBox.margin>
-                                    <Insets left="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
+
+                  <Pane prefHeight="30.0" prefWidth="100.0" />
+                  <VBox fx:id="contatosContainer" spacing="10" prefWidth="300.0">
+                     <padding>
+                        <Insets top="10.0" left="10.0" right="10.0" bottom="10.0"/>
+                     </padding>
+                  </VBox>
                </children>
             </VBox>
          </children>
       </HBox>
-      <VBox layoutX="399.0" prefHeight="60.0" prefWidth="607.0">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="607.0">
-               <children>
-                  <Pane prefHeight="60.0" prefWidth="14.0" />
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../resources/images/perfil.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
-                  <Pane prefHeight="60.0" prefWidth="14.0" />
-                  <Label prefHeight="21.0" prefWidth="120.0" text="Scache" textFill="#868686">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+
       <ScrollPane fx:id="chatScroll" layoutX="399.0" layoutY="60.0" prefHeight="594.0" prefWidth="607.0">
          <content>
             <VBox fx:id="messageContainer" prefWidth="605" spacing="10">

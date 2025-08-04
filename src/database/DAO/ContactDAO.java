@@ -11,6 +11,10 @@ import java.util.UUID;
 public class ContactDAO {
     private UserDAO udao;
 
+    public ContactDAO(){
+        this.udao = new UserDAO();
+    }
+
     public ArrayList<User> meusContatos(UUID id_usuarioInterno){
         String sql = "select id_usuarioExterno from Contact where id_usuarioInterno = ?";
         ArrayList<User> lista = new ArrayList<>();
