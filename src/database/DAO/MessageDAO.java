@@ -66,7 +66,7 @@ public class MessageDAO {
     }
 
     public ArrayList<Message> getMensagensPorUsuario(UUID idUsuario, UUID id_Contatoexterno) {
-        String sql = "SELECT * FROM message WHERE id_remetente = ? and id_destinatario = ?";
+        String sql = "SELECT * FROM message WHERE id_remetente = ? or id_destinatario = ?";
         ArrayList<Message> mensagens = new ArrayList<>();
 
         try (Connection conn = DBConnection.getConnection()) {

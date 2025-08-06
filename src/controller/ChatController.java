@@ -89,6 +89,12 @@ public class ChatController {
 
 
     private void addMessageBubble(String sender, String text, boolean outgoing) {
+
+
+
+
+
+
         if (text == null || text.trim().isEmpty()) {
             System.out.println("Mensagem vazia. Nada foi enviado.");
             return;
