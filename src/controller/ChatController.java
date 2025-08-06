@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 import java.time.LocalDateTime;
 
@@ -39,7 +41,8 @@ public class ChatController {
 
     @FXML
     private VBox contatosContainer;
-
+    @FXML
+    private TextField usernameField;
 
     @FXML
     private VBox messageContainer;
@@ -52,7 +55,6 @@ public class ChatController {
 
     private MessageDAO MDAO = new MessageDAO();
     private ContactDAO cDao = new ContactDAO();
-    private UserDAO uDao = new UserDAO();
 
     private User contatoExternoAtual;
 
@@ -89,11 +91,6 @@ public class ChatController {
 
 
     private void addMessageBubble(String sender, String text, boolean outgoing) {
-
-
-
-
-
 
         if (text == null || text.trim().isEmpty()) {
             System.out.println("Mensagem vazia. Nada foi enviado.");
@@ -196,6 +193,7 @@ public class ChatController {
         }
     }
 
+
     public void mostrarMinhasMsgContatoClicado(UUID id_Contatoexterno){
         ArrayList<Message> minhasMsgsComEsteContato = minhasMsgContatoClicado(id_Contatoexterno);
 
@@ -246,10 +244,51 @@ public class ChatController {
         scrollToBottom();
     }
 
+    public void addContato(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/addContato.fxml"));
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deslogar() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public ArrayList<User> meusContatos(){
-        return cDao.meusContatos(usuarioLogado().getId());
+        ArrayList<User> contatosRepetidos = cDao.meusContatos(usuarioLogado().getId());
+        ArrayList<User> novo = new ArrayList<>();
+
+        for(User u : contatosRepetidos){
+            boolean temIgual = false;
+            for(User h : novo){  // aqui tem que comparar com 'novo', não com 'contatosRepetidos'
+                if(u.equals(h)){
+                    temIgual = true;
+                    break;  // já achou igual, pode parar o loop
+                }
+            }
+            if(!temIgual) novo.add(u);
+        }
+
+        return novo;
     }
+
 
 
     private ArrayList<Message> minhasMsgContatoClicado(UUID id_Contatoexterno){
@@ -266,8 +305,10 @@ public class ChatController {
     }
 
     private User GetContatoAtualExterno(){
-        return this.contatoExternoAtual;
+        return contatoExternoAtual;
     }
+
+
 
     private void scrollToBottom() {
         Platform.runLater(() -> chatScroll.setVvalue(1.0));

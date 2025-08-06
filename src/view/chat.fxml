@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.Button?>
 <AnchorPane fx:id="rootPane" prefHeight="702.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChatController">
    <children>
       <HBox prefHeight="702.0" prefWidth="400.0">
@@ -45,14 +46,39 @@
                      </VBox.margin>
                   </ImageView>
                   <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <ImageView fitHeight="48.0" fitWidth="38.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../resources/images/sair.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="30.0" />
-                     </VBox.margin>
+<!--                  BUTTON de add contato-->
+                  <Button layoutX="13.0" layoutY="401.0" onAction="#addContato" prefHeight="50.0" prefWidth="300.0" stylesheets="@../resources/styles/stylesheet.css" text="ADD contato">
+                     <ImageView fitHeight="48.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../resources/images/mandar.png" />
+                        </image>
+                        <VBox.margin>
+                           <Insets bottom="30.0" />
+                        </VBox.margin>
+                     </ImageView>
+                  </Button>
+
+<!--                  BUTTON de deslogar-->
+                  <Button layoutX="13.0" layoutY="401.0" onAction="#deslogar" prefHeight="50.0" prefWidth="300.0" stylesheets="@../resources/styles/stylesheet.css" text="Deslogar">
+                      <ImageView fitHeight="48.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../resources/images/sair.png" />
+                        </image>
+                        <VBox.margin>
+                           <Insets bottom="30.0" />
+                        </VBox.margin>
+                     </ImageView>
+                  </Button>
+                  <ImageView fitHeight="48.0" fitWidth="38.0" pickOnBounds="true"  onMouseClicked="#closeApp" preserveRatio="true">
+                        <image>
+                           <Image url="@../resources/images/sair.png" />
+                        </image>
+                        <VBox.margin>
+                           <Insets bottom="30.0" />
+                        </VBox.margin>
                   </ImageView>
+
+
                </children>
             </VBox>
             <VBox prefHeight="702.0" prefWidth="315.0" styleClass="sidebar-background" stylesheets="@../resources/styles/stylesheet.css">
