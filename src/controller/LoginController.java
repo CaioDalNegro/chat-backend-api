@@ -40,23 +40,27 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        User user = userDAO.findUserByNomeAndSenha(username, password);
+        new Thread(() -> {
+            User user = userDAO.findUserByNomeAndSenha(username, password);
 
-        if (user != null) {
-            showAlert("Login realizado com sucesso!");
-            usuarioLogado = user;
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/view/chat.fxml"));
-                Stage stage = (Stage) usernameField.getScene().getWindow();
-                stage.setScene(new Scene(root));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        } else {
-            showAlert("Usuário ou senha incorretos.");
-        }
+            Platform.runLater(() -> {
+                if (user != null) {
+                    showAlert("Login realizado com sucesso!");
+                    usuarioLogado = user;
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("/view/chat.fxml"));
+                        Stage stage = (Stage) usernameField.getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    showAlert("Usuário ou senha incorretos.");
+                }
+            });
+        }).start();
     }
+
 
     public void goToRegister() {
         try {
