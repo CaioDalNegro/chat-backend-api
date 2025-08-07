@@ -41,6 +41,7 @@ public class ChatController {
 
     @FXML
     private VBox contatosContainer;
+
     @FXML
     private TextField usernameField;
 
@@ -49,6 +50,12 @@ public class ChatController {
 
     @FXML
     private ScrollPane chatScroll;
+
+    @FXML
+    private Label usuarioLabel;
+
+    @FXML
+    private Label usuarioPerfil;
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -88,7 +95,6 @@ public class ChatController {
             scrollToBottom();
         }
     }
-
 
     private void addMessageBubble(String sender, String text, boolean outgoing) {
 
@@ -175,6 +181,8 @@ public class ChatController {
 
                 contatosBox.setOnMouseClicked(event -> {
                     System.out.println("clicou " + contato.getNome());
+
+                    usuarioLabel.setText(contato.getNome());
                     mostrarMinhasMsgContatoClicado(contato.getId());
                     SetContatoAtualExterno(contato);
                 });

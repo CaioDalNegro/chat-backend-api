@@ -5,15 +5,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/24.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.AddContatoController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddContatoController">
    <children>
-      <Button layoutX="274.0" layoutY="253.0" mnemonicParsing="false" text="voltar" onAction="#voltar" />
-      <Label layoutX="219.0" layoutY="155.0" text="Digite o nome do usuario" />
+      <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" text="voltar" />
+      <Label layoutX="226.0" layoutY="155.0" text="Digite o nome do usuario" />
       <TextField fx:id="campoNome" layoutX="219.0" layoutY="188.0" />
-      <Button layoutX="274.0" layoutY="253.0" mnemonicParsing="false" text="Add" onAction="#nomeDoContato" />
+      <Button layoutX="220.0" layoutY="232.0" mnemonicParsing="false" onAction="#nomeDoContato" prefHeight="25.0" prefWidth="149.0" text="Add" />
    </children>
 </AnchorPane>
