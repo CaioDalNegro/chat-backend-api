@@ -62,9 +62,6 @@ public class AddContatoController {
 
     }
 
-
-
-
     public void nomeDoContato(){
         String nome = campoNome.getText();
         User u = udao.PegarPorNome(nome);
@@ -91,7 +88,6 @@ public class AddContatoController {
 
     }
 
-
     public void voltar(){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/chat.fxml"));
@@ -106,8 +102,6 @@ public class AddContatoController {
         }
 
     }
-
-
 
     private User usuarioLogado() {
         return LoginController.getUsuarioLogado();

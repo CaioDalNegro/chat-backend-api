@@ -96,14 +96,17 @@
             <FontAwesomeIconView glyphName="SEND" onMouseClicked="#sendMessage" size="25" wrappingWidth="16.0" />
          </children>
       </HBox>
-      <VBox alignment="CENTER_LEFT" layoutX="375.0" prefHeight="84.0" prefWidth="632.0">
+      <HBox alignment="CENTER_LEFT" layoutX="374.0" layoutY="2.0" prefHeight="79.0" prefWidth="632.0">
          <children>
-            <Label fx:id="usuarioLabel" text="">
+            <Pane prefHeight="79.0" prefWidth="19.0" />
+            <Label fx:id="usuarioLabel" prefHeight="35.0" prefWidth="71.0" text="">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
+            <Pane prefHeight="79.0" prefWidth="496.0" />
+            <FontAwesomeIconView glyphName="TRASH" size="20" onMouseClicked="#deleteContatoSelecionado" />
          </children>
-      </VBox>
+      </HBox>
    </children>
 </AnchorPane>

@@ -159,6 +159,51 @@ public class ChatController {
         messageContainer.getChildren().add(messageBox);
     }
 
+    @FXML
+    private void deleteContatoSelecionado() {
+        User contato = GetContatoAtualExterno();
+        if (contato == null) {
+            System.out.println("Nenhum contato selecionado para excluir.");
+            return;
+        }
+
+        // Confirmação antes de excluir
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Excluir contato");
+        alert.setHeaderText(null);
+        alert.setContentText("Deseja realmente excluir o contato " + contato.getNome() + "?");
+
+        java.util.Optional<javafx.scene.control.ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == javafx.scene.control.ButtonType.OK) {
+            try {
+                // Remove do banco
+                cDao.deleteContato(usuarioLogado().getId(), contato.getId());
+
+                // Remove da lista na interface sem recarregar tudo
+                contatosContainer.getChildren().removeIf(node -> {
+                    if (node instanceof HBox) {
+                        HBox hbox = (HBox) node;
+                        for (javafx.scene.Node child : hbox.getChildren()) {
+                            if (child instanceof Label label && label.getText().equals(contato.getNome())) {
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
+                });
+
+                // Limpa conversa e seleção atual
+                contatoExternoAtual = null;
+                usuarioLabel.setText("");
+                messageContainer.getChildren().clear();
+
+                System.out.println("Contato excluído com sucesso.");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void mostrarContatos() {
         ArrayList<User> contatos = meusContatos();
         contatosContainer.getChildren().clear();
