@@ -1,3 +1,7 @@
+<img width="796" height="596" alt="telalogin" src="https://github.com/user-attachments/assets/6c598ec2-4b09-4b62-b6a3-20c28f2df3de" />
+<img width="994" height="695" alt="telahome" src="https://github.com/user-attachments/assets/a1d13f1c-2ae8-475a-bcbe-f015aba9a42f" />
+
+
 Durante as férias da faculdade, eu e meu colega Gabriel Scache desenvolvemos um projeto desafiador e muito especial: um sistema de chat usando Java e JavaFX, com PostgreSQL para gerenciamento de dados.
 🔹 Principais funcionalidades e tecnologias:
 Java + JavaFX para interface e lógica da aplicação
