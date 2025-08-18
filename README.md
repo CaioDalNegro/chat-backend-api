@@ -40,7 +40,7 @@ O sistema foi desenvolvido para suportar múltiplos usuários conectados em dife
 ### ▶️ Executando  
 1. Clone o repositório:  
    ```bash
-   git clone https://github.com/seu-usuario/chat-system-javafx.git
+   git clone https://github.com/CaioDalNegro/chat-backend-api.git
 
 2. Configure o arquivo de conexão com suas credenciais do banco.
 3. Execute primeiro o servidor.
