@@ -44,7 +44,7 @@ O sistema foi desenvolvido para suportar múltiplos usuários conectados em dife
 
 2. Configure o arquivo de conexão com suas credenciais do banco.
 3. Execute primeiro o servidor.
-4 .Abra múltiplos clientes e faça login para testar a troca de mensagens.
+4. Abra múltiplos clientes e faça login para testar a troca de mensagens.
 
 ### 📚 Aprendizados
 Esse projeto nos ajudou a reforçar os conhecimentos em:
