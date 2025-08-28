@@ -64,7 +64,7 @@ Esse projeto nos ajudou a reforçar os conhecimentos em:
 - [Caio Dal Negro](https://github.com/CaioDalNegro)  
 - [Gabriel Scache](https://github.com/GabrielScachePrudencio)
 
-## 🏷️ Tags  
+## 🏷️ Tags
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![JavaFX](https://img.shields.io/badge/JavaFX-UI-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-316192)
